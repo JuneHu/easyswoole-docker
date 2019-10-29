@@ -1,6 +1,6 @@
 # 从官方基础版本构建
-ARG PHP_VERSION=7.3
-FROM php:${PHP_VERSION}-fpm-alpine
+ARG PHP_VERSION=7.3.10
+FROM php:${PHP_VERSION}-alpine
 
 # easyswoole的版本
 ARG EASYSWOOLE_VERSION=3.3.2

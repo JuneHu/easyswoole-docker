@@ -2,7 +2,7 @@
 
 环境:
 
-- php: 7.3
+- php: 7.3.10
 - swoole: 4.4.8
 - easyswoole: 3.3.2
 
