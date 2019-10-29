@@ -42,13 +42,12 @@ RUN curl -sS https://getcomposer.org/installer | php \
 # 进入工作目录
 WORKDIR /var/www/easyswoole
 
-# 运行composer 安装依赖
+# 安装easyswoole
 RUN composer require easyswoole/easyswoole=${EASYSWOOLE_VERSION}
 
-# easyswoole框架安装
 RUN php vendor/bin/easyswoole install
 
-# 指定在docker允许时指定的端口进行转发
+# 指定监听端口
 EXPOSE 9501
 
 # 运行容器时执行命令
