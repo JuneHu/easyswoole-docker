@@ -3,9 +3,9 @@ ARG PHP_VERSION=7.3.10
 FROM php:${PHP_VERSION}-alpine
 
 # easyswoole的版本
-ARG EASYSWOOLE_VERSION=3.3.2
+ARG EASYSWOOLE_VERSION=3.3.4
 # swoole的版本
-ARG SWOOLE_VERSION=4.4.8
+ARG SWOOLE_VERSION=4.4.13
 
 # 更新为国内的镜像
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
@@ -32,6 +32,9 @@ RUN pecl install redis-5.0.0 && docker-php-ext-enable redis
 
 # swoole扩展
 RUN pecl install swoole-${SWOOLE_VERSION} && docker-php-ext-enable swoole
+
+# 安装inotify扩展
+RUN pecl install inotify && docker-php-ext-enable inotify
 
 # 安装 composer
 RUN curl -sS https://getcomposer.org/installer | php \
